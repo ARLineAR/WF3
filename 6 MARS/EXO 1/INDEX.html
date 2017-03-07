@@ -11,14 +11,65 @@
         <!-- Ajouter un titre à la page -->
         <title>Bonjour le monde</title>
 
+        <style>
+
+        /*Class*/
+            .mike {
+                color: green;
+            }
+
+            .mouse {
+                color: blueviolet;
+            }
+
+        /*Id*/
+            #webforce3 {
+                color:red;
+            }
+
+            td {
+                width: 200px; 
+                height: 100px; 
+                border:1px dashed black;
+            }
+
+            table {
+                border-collapse: collapse; 
+                text-align: center; 
+                width: 100%
+
+            }
+
+            ol {
+                background-color: blue;
+            }
+
+            ul {
+                background-color: red;
+                list-style-type: none;
+            }
+
+            form {
+                text-align: center
+                
+            }
+            
+            fieldset {
+                background-image: url(https://wallpaperbrowse.com/media/images/background-pictures-2.jpg); 
+                background-size: 100% 100%
+            }
+        
+
+        </style>
+
     </head>
 
     <!-- Ajouter du contenu dans la page -->
     <body>
 
         <!-- Les titres -->
-        <h1>Titre principal</h1> <!-- la balise H1 doit être unique -->
-        <h2>Sous-titre jusqu'à H6</h2>
+        <h1 id="webforce3">Titre principal</h1> <!-- la balise H1 doit être unique -->
+        <h2 class="mouse">Sous-titre jusqu'à H6</h2>
 
         <!--Les liens dans un nouvel onglet -->
         <a href="http://www.google.fr" target="_blank">Google</a>
@@ -28,11 +79,11 @@
 
 
         <!-- Paragraphe-->
-        <p>Lorem ipsum dolor sit amet, <b>consectetur adipisicing elit</b>. Sequi minus omnis consequatur <i>magni deleniti</i> molestiae doloremque maxime aperiam a hic. Mollitia, expedita quo aut rerum deleniti impedit perferendis blanditiis rem.</p>
+        <p class="mike">Lorem ipsum dolor sit amet, <b>consectetur adipisicing elit</b>. Sequi minus omnis consequatur <i>magni deleniti</i> molestiae doloremque maxime aperiam a hic. Mollitia, expedita quo aut rerum deleniti impedit perferendis blanditiis rem.</p>
     
         <!-- Liste ordonnée -->
         
-        <ol style=" background-color: blue;">
+        <ol>
             <li><i>Pierre</i></li>
             <li>Paul</li>
             <li>Jacques</li>
@@ -41,7 +92,7 @@
 
         <!-- Liste non-ordonnée -->
 
-        <ul style="background-color: red;list-style-type: none;"
+        <ul>
            <li>Piere</li>
             <li><b>Paul</b></li>
             <li>Jacques</li>
@@ -51,8 +102,9 @@
         <img src="img/Minion2.jpg" alt="Photo d'un minion'">
         <img src="img/Minion2.jpg" alt="Photo d'un minion'">
        
-        <form action="page.php" style="text-align: center">
-            <fieldset style="background-image: url(https://wallpaperbrowse.com/media/images/background-pictures-2.jpg); background-size: 100% 100%">
+       <!-- Formulaire -->
+        <form action="page.php">
+            <fieldset>
                 
             <legend>Mike: </legend>
            <p>Nom: </p>
@@ -62,6 +114,41 @@
             <input type="submit" value="Envoi">
             </fieldset>
         </form>
+        <p>
+
+        </p>
+        
+
+            <!-- Les valeurs (en rouge) sont séparées par des ; quand elles sont plusieurs dans un même attribut (bleu clair)-->
+
+        <!-- Tableau -->
+        <table>
+        <tbody>
+         <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+           
+         </tr>
+        
+        <tr>
+            <td>&nbsp;</td>
+          <td>Mike</td>
+          <td>&nbsp;</td>
+        
+        </tr>
+
+        <tr>
+            <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+
+        </tbody>
+        </table>
+        <p>
+
+        </p>
 
     </body>
 
