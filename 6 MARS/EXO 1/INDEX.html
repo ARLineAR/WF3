@@ -23,7 +23,7 @@
         <!--Les liens dans un nouvel onglet -->
         <a href="http://www.google.fr" target="_blank">Google</a>
 
-        <!-- n lien dans le même onglet-->
+        <!-- Lien dans le même onglet-->
         <a href="about.html">A propos de moi</a>
 
 
@@ -31,24 +31,38 @@
         <p>Lorem ipsum dolor sit amet, <b>consectetur adipisicing elit</b>. Sequi minus omnis consequatur <i>magni deleniti</i> molestiae doloremque maxime aperiam a hic. Mollitia, expedita quo aut rerum deleniti impedit perferendis blanditiis rem.</p>
     
         <!-- Liste ordonnée -->
-        <ol>
+        
+        <ol style=" background-color: blue;">
             <li><i>Pierre</i></li>
             <li>Paul</li>
             <li>Jacques</li>
+        
         </ol>
 
         <!-- Liste non-ordonnée -->
 
-        <ul>
-            <li>Piere</li>
+        <ul style="background-color: red;list-style-type: none;"
+           <li>Piere</li>
             <li><b>Paul</b></li>
             <li>Jacques</li>
         </ul>
     
         <!-- Image -->
-        <img src="img/Minion.jpg" alt="Photo d'un minion'">
-        <img src="img/Minion.jpg" alt="Photo d'un minion'">
+        <img src="img/Minion2.jpg" alt="Photo d'un minion'">
+        <img src="img/Minion2.jpg" alt="Photo d'un minion'">
+       
+        <form action="page.php" style="text-align: center">
+            <fieldset style="background-image: url(https://wallpaperbrowse.com/media/images/background-pictures-2.jpg); background-size: 100% 100%">
+                
+            <legend>Mike: </legend>
+           <p>Nom: </p>
+            <input type="text" name="Nom">
+            <p>Prénom: </p>
+            <input type="text" name="Prénom"><br><br>
+            <input type="submit" value="Envoi">
+            </fieldset>
+        </form>
 
     </body>
 
-</html> <!-- Ouvrir la balise html -->
+</html> <!-- Fermer la balise html -->
