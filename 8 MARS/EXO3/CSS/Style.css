@@ -18,7 +18,9 @@ Style Reset
     body{
         font-size: 1.5rem; /* 1.5rem =15px */
     }
-
+    section {
+    margin-bottom: 4rem;
+}
     h1{
         font-size: 3rem;
         /* 3 fois le font-size de HTML (root) */
@@ -58,4 +60,64 @@ Style largeur site
 
         /* Centrer une balise de type block réduite en largeur */
         margin: 2rem auto;
+       
+    }
+
+/*
+Mise en forme typographique
+*/
+    .presentation{
+        /* Modifier la famille de caractère de la font */
+        font-family: "Arial", sans-serif;
+
+        /* Modifier la taille de la font */
+        font-size: 1.7rem;
+
+        /* Modifier l'interlignage */
+        line-height: 2em;
+
+        /* Modifier la graisse de la font */
+        font-weight: bold;
+
+        /* Ajouter une ombre portée à la font */
+        text-shadow: 0 0 .5rem blue;
+
+        /* Modifier la casse de font*/
+        text-transform: uppercase;
+
+        /* Modifier le style de la font (italic) */
+        font-style: italic;
+
+        /* Modifier la décoration de la font */
+        text-decoration: underline;
+
+        /* Modifier la couleur de la font */
+        color: white;
+
+        padding: 2rem;
+        background-color: red;
+        margin: 4rem auto;
+
+
+    }
+
+/*
+Utilisation de s couleurs
+*/
+    #portfolio{
+
+        background-color: #344a77; /* Référence hexadécimale */
+        color: white;
+        text-align: center
+    }
+
+    #portfolio article{
+        background-color: rgba(181, 175, 222, 0.81); /* Référence RGBA pour modifier l'opacité de la couleur */
+        color: black;
+        padding: 2rem;
+        margin: 1rem;
+
+        /* Faire en sorte d'afficher les articles sur 3 colomnes */
+        display: inline-block;
+
     }
