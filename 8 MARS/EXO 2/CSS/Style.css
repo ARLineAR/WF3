@@ -1,0 +1,78 @@
+#idImportant{
+    color: yellow;
+}
+
+.importantClass{
+    color: green;
+}
+
+/*
+Sélecteur logique : une balise html
+*/
+    /* Faire en sorte que tous les textes de la pge soient centrés */
+    body{
+        text-align: center;
+    }
+
+    /* Sélectionner la balise h2 */
+    h2, h3{
+    /* Changer la couleur de la font */
+        color: red;
+    }
+
+    h3{
+        color: blue
+    }
+
+    /* Sélectionner les balises a */
+    a{
+    /* Supprimer le soulignement */
+        text-decoration: none;
+    }
+
+
+/*
+Sélecteurs imbrisqués
+    
+*/
+    h2 b{
+        color: green;
+    }
+
+    .redBackground h2, .redBackground b{
+        color: white;
+    }
+
+
+/*   
+Sélecteurs par classe
+*/
+    /*Sélectionner la class redBackground */
+    .redBackground{
+        /* Modifier la couleur de fond */
+        background-color: red;
+    }
+
+/* Sélecteurs par Id
+*/
+    /* Sélectionner l'id bigTitle */
+    #bigTitle{
+        /* Modifier la taille de la font */
+        font-size: 3rem;
+    }
+
+
+/*Sélecteur s'interaction (etat)
+*/
+    /* Changer la couleur de la balise a au survol */
+    a:hover{
+        color: red;
+    }
+
+    .redBackground:hover{
+        background-color: blue;
+    }
+
+    #bigTitle:hover{
+        color: darkslategrey;
+    }
