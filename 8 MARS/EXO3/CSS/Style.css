@@ -107,8 +107,8 @@ Utilisation de s couleurs
     #portfolio{
 
         background-color: #344a77; /* Référence hexadécimale */
-        color: white;
-        text-align: center
+        color: white; /* Nom intelligible */
+        text-align: center /* Agit sur les textes et sur les balises inline (enfant) */
     }
 
     #portfolio article{
