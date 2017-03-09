@@ -34,8 +34,22 @@ Style Reset
         padding: 6rem 0;
     }
 
+/*
+Style largeur maximale
+*/
+    nav ul, #portfolio, #aboutMe p, #contacts, footer section{
+
+        /* Définir une largeur maximum */
+        max-width: 95rem;
+        /* Centrer une balise de type block dans son parent */
+        margin: auto;
+
+    }
+
     
-    /* Style Header */
+/*
+Style Header
+*/
 
         header{
 
@@ -184,7 +198,6 @@ Style About Me
         font-size: 1.75rem;
 
         margin-bottom: 4rem;
-        padding: 0 25rem;
     }
 
     #aboutMe a{
@@ -261,7 +274,6 @@ Style footer
     [href="http://google.com"]{
         color: #18bc9c;
     }
-
 
 
     aside{
