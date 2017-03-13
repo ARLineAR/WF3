@@ -64,7 +64,7 @@ header{
     text-align: center;
 }
 
-/* Ajouter un pseu-élément à la fin de la balise h1 */
+/* Ajouter un pseudo-élément à la fin de la balise h1 */
 h1:after{
 
     /* Ajouter du contenu dans le pseudo-élément */
@@ -76,7 +76,7 @@ h1:after{
     background: red;
 }
 
-/* Ajouter un pseu-élément au début de la balise h1 */
+/* Ajouter un pseudo-élément au début de la balise h1 */
 h1:before{
     content: "\f005";
     color: lightskyblue;
