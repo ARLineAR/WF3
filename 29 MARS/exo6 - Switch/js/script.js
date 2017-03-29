@@ -14,21 +14,27 @@ function chooseColor(){
 // Créer une fonction pour traduire les couleurs
 function translateColor( paramColor ){
 
-    // Utilisation du switch
-    switch(paramColor){
+   
+    if ( paramColor == 'rouge') { // Si paramColor est égal à 'rouge'
 
-        // 1er cas : paramColor est égale à 'rouge'
-        case 'rouge': console.log('Rouge = Red'); break;
+        console.log('Rouge se dit Red en anglais');
 
-        // 2e cas : paramColor est égale à 'vert'      
-        case 'vert': console.log('Vert = Green'); break;
+    } else if( paramColor == 'bleu' ) { // Si paramColor est égal à 'bleu'
 
-        // 3e cas : paramColor est égale à 'bleu'      
-        case 'bleu': console.log('Bleu = Blue'); break;
+        console.log('Bleu se dit Blue en anglais');
 
-        // Pour tous les autres cas     
-        default: console.log('Je ne connais pas cette couleur'); break;
+    } else if ( paramColor == 'vert' ) {  // Si paramColor est égal à 'vert'
+
+        console.log('Vert se dit Green en anglais');
+
+    } else{ // Dans tous les autres cas
+
+        console.log('Je ne connais pas cette couleur...');
+
+        // Rappeler la fonction pour refaire choisir une couleur (si couleur inconnue)
+        chooseColor();
     };
+    
 };
 
 
