@@ -32,6 +32,12 @@ $(document).ready(function(){
     // Générer une balise nav + ul dans le header
     myHeader.append( '<nav><i class="fa fa-bars" aria-hidden="true"></i><ul></ul></nav>');
 
+    // Activer le burgerMenu au click sur la balise .fa-bars
+    $('.fa-bars').click(function(){
+
+        $('nav ul').toggleClass('toggleBurger');
+    })
+
     // Faire une boucle for(){...} sur myNav pour générer les liens de la nav
     for( var i = 0; i < myNav.length; i++ ){
 
@@ -48,9 +54,16 @@ $(document).ready(function(){
     myMain.append( '<h2>' + myTitles.accueil + '</h2>' );
     myMain.append( '<section>' + myContent.accueil + '</section>');
 
+    // Ajouter la class active sur la première li de la nav
+    $('nav li:first').addClass('active');
+
+
 
     // Capter l'événement click sur les balises a en bloquant le comportement naturel des balises a
-    $('a').click( function(evt) {
+    $('li').click( function(evt) {
+
+        // Supprimer la classe active des balises li de la nav
+        $('nav li').removeClass('active');
 
         // Bloquer le comportement naturel de la balise
         evt.preventDefault();
@@ -62,19 +75,28 @@ $(document).ready(function(){
         // console.log( $(this).attr('href') );
 
         // Vérifier la valeur de l'attribut href pour afficher le bon titre
-        if( $(this).attr('href') == 'Accueil'){
+        if( $(this).children('a').attr('href') == 'Accueil'){
             // Sélectionner la balise h2 pour changer son contenu
             $('h2').text( myTitles.accueil );
 
             // Sélectionner la section pour changer le contenu
             $('section').html( myContent.accueil );
 
-        }else if ( $(this).attr('href') =='Portfolio'){
+            // Ajouter la classe active de la balise li sur la balise a sélectionnée
+            $(this).addClass('active');
+            // Si $('a').click( function(evt)) =>  $(this).parent().addClass('active') pour chaque condition;
+
+
+
+        }else if ( $(this).children('a').attr('href') =='Portfolio'){
              // Sélectionner la balise h2 pour changer son contenu
             $('h2').text( myTitles.portfolio );
 
             // Sélectionner la section pour changer le contenu
             $('section').html( myContent.portfolio );
+
+            // Ajouter la classe active de la balise li sur la balise a sélectionnée
+            $(this).addClass('active');
 
 
         }else{
@@ -84,7 +106,13 @@ $(document).ready(function(){
             // Sélectionner la section pour changer le contenu
             $('section').html( myContent.contacts );
 
+            // Ajouter la classe active de la balise li sur la balise a sélectionnée
+            $(this).addClass('active');
+
         };
+
+        // Fermer le burgerMenu
+        $('nav ul').removeClass('toggleBurger');
 
     } );
 

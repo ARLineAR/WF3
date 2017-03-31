@@ -31,6 +31,10 @@ h1, h2, h3{
 
 }
 
+/*
+Style header
+*/
+
 header, footer{
     color: white;
     background: purple;
@@ -47,9 +51,44 @@ h1 span{
     margin-bottom: 1rem;
 }
 
-nav ul{
-    display: none;
+nav a{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+
+    -webkit-transition: all 0.7s;
+    transition: all 0.7s;
 }
+
+nav li{
+    background: rgba(255, 255, 255, .5);
+    padding: 1rem;
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
+
+.active{
+    background: white;
+    
+}
+
+.active a{
+    color: purple;
+}
+
+nav ul{
+    
+    height: 0;
+    overflow: hidden;
+
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.toggleBurger{
+    height: 15rem;
+}
+
 
 .fa-bars{
     position: absolute;
@@ -73,12 +112,10 @@ nav ul{
 Style main
 */
 
+
+
 h2{
     color: purple;
-}
-
-h3{
-    margin-bottom: 1rem;
 }
 
 h2:after{
@@ -90,6 +127,12 @@ h2:after{
     border-bottom: .2rem dotted black;
 }
 
+h3{
+    margin-bottom: 1rem;
+}
+
+
+
 /*
 Style footer
 */
@@ -97,6 +140,49 @@ Style footer
 footer{
     position: fixed;
     bottom: 0;
+    margin-bottom: 2rem;
     left: 0;
     width: 100%;
 }
+
+
+/*
+Requête media
+*/
+
+    @media screen and (min-width: 850px){
+
+        /* Style header */
+        header{
+            text-align: left;
+        
+        }
+
+        .fa-bars{
+            display: none;
+        }
+
+        nav ul{
+            height: auto;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        nav li{
+            display: inline-block;
+        }
+
+        nav li:not(:last-child){
+            margin-right: .5rem;
+        }
+
+        main, h1, nav{
+        max-width: 85rem;
+        margin: auto;
+        position: relative;
+    
+}
+
+        
+    }
