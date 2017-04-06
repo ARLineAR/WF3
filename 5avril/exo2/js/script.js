@@ -51,6 +51,7 @@ $(document).ready(function(){
             // Masquer le main
             $('main').fadeOut();
 
+            // Créer une variable pour récupérer la valeur de l'attribut href
             var viewToLoad = $(this).attr('href');
 
             // Fermer le buger menu
