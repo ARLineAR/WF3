@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <!--
+            - Header avec titre
+            - Main avec 3 sections
+                - Section 1 : 1 sous-titre + 1 lorem
+                - Section 1 : 1 sous-titre + 1 formulaire avec 4 cases à cocher
+                - Section 1 : 1 sous-titre + 1 google map + 1 lorem
+            - Footer avec under MIT Licence
+
+        -->
+        
+        <header>
+            <h1>Titre</h1>
+        </header>
+
+        <main>
+            <section>
+                <h2>About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem soluta porro veritatis assumenda dolore laudantium delectus accusantium sapiente pariatur eius, excepturi mollitia, error optio aut, modi, ipsa dolor labore quia!</p>
+            </section>
+
+            <section id="myForm">
+
+                <article>
+                <h2>Formulaire</h2>
+                
+                    <form action="#">
+                        <p><input type="checkbox" value="first">First</p>
+                        <p><input type="checkbox" value="second">Second</p>
+                        <p><input type="checkbox" value="third">Third</p>
+                        <p><input type="checkbox" value="fourth">Fourth</p>
+                        <input type="submit" value="Modifier">
+                    </form>
+                </article> 
+
+                <article>
+                    <figure>
+                        <img src="img/1.jpg" alt="Projet 1">
+                      
+                    </figure>
+                </article>         
+            </section>
+            
+            <section>
+                <h3>Plan d'accès</h3>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3123.113979284482!2d2.3301730124932245!3d48.83503088087994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc8d7f073e62eb4b3!2sLes+Catacombes+de+Paris!5e0!3m2!1sfr!2sfr!4v1491897079657" allowfullscreen></iframe>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio aliquid, aperiam qui sit nobis perspiciatis dolores a incidunt voluptatibus harum hic illum odit eos, quas, veniam necessitatibus iste. Aut, maxime.</p>
+            </section>
+        </main>
+
+        <footer>Under MIT Licence</footer>
+
+        <!-- Modal -->
+        <section id="modal">
+            <article>
+                <h2>Merci, votre image est :</h2>
+                <img src="img/1.jpg" alt="Image sélectionnée">
+            </article>
+        </section>
+
+        <!--
+            Intégrer le script jQuery avant le JavaScript
+        -->
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+        <script src="js/script.js"></script>
+
+        
+    </body>
+</html>
+
