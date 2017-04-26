@@ -7,10 +7,7 @@
 
 if(!empty($_POST)){
 
-    echo 'Ville : ' . $_POST ['ville']. '<br>';
-    echo 'Code Postal : ' . $_POST ['cp']. '<br>'; // attention les name sont sensibles à la case
-    echo 'Adresse : ' . $_POST ['adresse']. '<br>';
-}
+   
 
 ?>
 

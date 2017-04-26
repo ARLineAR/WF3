@@ -10,16 +10,44 @@
 
 
 
-if(!empty($_POST['fruit'])){
-    echo calcul($_POST['poids']);
-}else{
-    echo 'Aucun fruit sélectionné';
+// include('fonctions.inc.php');
+
+if(!empty($_POST)){
+    echo calcul($_POST['fruits'], $_POST['poids']);
+} else{
+    echo 'Vous devez indiquer toutes les valeurs du formulaire';
 }
+
+
 
 ?>
 
 
-<form method="post"action="">
+<link rel="stylesheet" href="css/style.css">
+
+<form method="post" action="formulaire.php"> 
+<!-- Il n'était pas nécessaire de remplir le action, le laisser vide renvoyait vers la même page -->
+
+    <label for="fruits">Choisissez vos fruits :</label>
+    <select name="fruits" id="fruits">
+        <option value = "cerises" <?php if(isset($_POST['fruits']) &&  $_POST['fruits'] == 'cerises') echo 'selected'; ?> >Cerises</option>
+        <option value="bananes" <?php if(isset($_POST['fruits']) &&  $_POST['fruits'] == 'bananes') echo 'selected'; ?> >Bananes</option>
+        <option value="pommes" <?php if(isset($_POST['fruits']) &&  $_POST['fruits'] == 'pommes') echo 'selected'; ?> >Pommes</option>
+        <option value="peches" <?php if(isset($_POST['fruits']) &&  $_POST['fruits'] == 'peches') echo 'selected'; ?> >Pêches</option>
+    </select>
+
+    <label for="poids">Indiquez un poids en grammes:</label>
+    <input type="text" name="poids" placeholder="poids en grammes" value="<?php echo $_POST['poids'] ?? ''; ?> " >
+
+    <input type="submit" value="Envoyer">
+
+</form>
+
+
+
+
+
+<!--<form method="post"action="">
 
 <select name="fruit" id="fruit">
     <option value="cerises">Cerises</option>
@@ -31,5 +59,5 @@ if(!empty($_POST['fruit'])){
 <label for="poids">Poids</label>
 <input type="text" id="poids" name="poids">
 
-</form>
+</form>-->
 
