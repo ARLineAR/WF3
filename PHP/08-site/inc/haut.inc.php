@@ -35,26 +35,26 @@
 
                     <ul class="nav navbar-nav">
                         <?php
-                        echo '<li><a href=" '. RACINE_SITE .' boutique.php">Boutique</a></li>';
+                        echo '<li><a href=" '. RACINE_SITE .'boutique.php">Boutique</a></li>';
 
                         if(internauteEstConnecte()) { // si membre est connecté
-                            echo '<li><a href=" '. RACINE_SITE .' profil.php">Profil</a></li>';
-                            echo '<li><a href=" '. RACINE_SITE .' connexion.php?action=deconnexion">Se déconnecter</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'profil.php">Profil</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'connexion.php?action=deconnexion">Se déconnecter</a></li>';
 
                         } else { // sinon s'il n'est pas connecté
-                            echo '<li><a href=" '. RACINE_SITE .' inscription.php">Inscription</a></li>';
-                            echo '<li><a href=" '. RACINE_SITE .' connexion.php">Connexion</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'inscription.php">Inscription</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'connexion.php">Connexion</a></li>';
                         }
 
-                        echo '<li><a href=" '. RACINE_SITE .' panier.php">Panier</a></li>';
+                        echo '<li><a href=" '. RACINE_SITE .'panier.php">Panier</a></li>';
 
                         // Menu admin
                         if(internauteEstConnecteEtEstAdmin()) {
-                            echo '<li><a href=" '. RACINE_SITE .' admin/gestion_boutique.php">Gestion de la boutique</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'admin/gestion_boutique.php">Gestion de la boutique</a></li>';
 
-                            echo '<li><a href=" '. RACINE_SITE .' admin/gestion_commande.php">Gestion des commandes</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'admin/gestion_commande.php">Gestion des commandes</a></li>';
 
-                            echo '<li><a href=" '. RACINE_SITE .' admin/gestion_membre.php">Gestion des membres</a></li>';
+                            echo '<li><a href=" '. RACINE_SITE .'admin/gestion_membre.php">Gestion des membres</a></li>';
                             
                         }
                         ?>
