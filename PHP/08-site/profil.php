@@ -11,8 +11,8 @@ if(!internauteEstConnecte()) {
     
 }
 
-echo '<pre>'; print_r($_SESSION); echo '</pre>';
-$contenu .= '<h2>Bonour '. $_SESSION['membre']['pseudo'].' ! </h2>';
+// echo '<pre>'; print_r($_SESSION); echo '</pre>';
+$contenu .= '<h2>Bonjour '. $_SESSION['membre']['pseudo'].' ! </h2>';
 
 // Onn affiche le statut du membre :
 if ($_SESSION['membre']['statut'] == 1) {
