@@ -92,3 +92,37 @@ function ajouterProduitDansPanier($titre, $id_produit, $quantite, $prix) {  // c
 
 
 }
+
+//------- fonction du montantTotal
+    function montantTotal(){
+        $total = 0; //vontient le total de la commande
+        for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++){
+            //tant que $i est inférieur au nombre de produits présents dans le panier, on additionne le prix fois la quantité:
+                $total += $_SESSION['panier']['quantite'][$i] * $_SESSION['panier']['prix'][$i] ; //le symbole += pour ajouter la nouvelle valeur à l'ancienne sans l'écraser
+        }
+        return round($total, 2); //on retourne le total arrondi à 2 décimales
+    }
+//------- fonction du retirer un produit du panier
+    function retirerProduitDuPanier($id_produit_a_supprimer){
+        //On cherche la position du produit dans le panier:
+            $position_produit = array_search($id_produit_a_supprimer, $_SESSION['panier']['id_produit']); //array_search renvoie la position du produit (integer) sinon false s'il n'y est pas.
+            if($position_produit !== false){
+                //si le produit est bien dans le panier, on coupe sa ligne :
+                    array_splice($_SESSION['panier']['titre'], $position_produit, 1); //efface la portion du tableau à partir de l'indice indiqué par $position_produit et sur 1 ligne.
+                    array_splice($_SESSION['panier']['id_produit'], $position_produit, 1);
+                    array_splice($_SESSION['panier']['quantite'], $position_produit, 1);
+                    array_splice($_SESSION['panier']['prix'], $position_produit, 1);
+            }
+}
+
+//Exercice: créer une fonction qui retourne le nombre de produits différents dans le panier. Et afficher le résultat à côté du lien "panier" dans le menu de navigation, excemple : panier(3). Si le panier est vide, vous affichez panier(0).
+    function quantitePanier(){
+        if(isset($_SESSION['panier'])){
+            // return count($_SESSION['panier']['id_produit']);
+            return array_sum($_SESSION['panier']['quantite']); //array_sum additionne les valeurs situées à un indice.
+        }else{
+            return 0;
+            echo 'TITI'; //après un return les instructions ne sont pas exécutées
+        }
+    }
+?>

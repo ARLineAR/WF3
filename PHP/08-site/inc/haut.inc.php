@@ -46,7 +46,7 @@
                             echo '<li><a href=" '. RACINE_SITE .'connexion.php">Connexion</a></li>';
                         }
 
-                        echo '<li><a href=" '. RACINE_SITE .'panier.php">Panier</a></li>';
+                        echo '<li><a href=" '. RACINE_SITE .'panier.php">Panier ('. quantitePanier() .') </a></li>';
 
                         // Menu admin
                         if(internauteEstConnecteEtEstAdmin()) {
