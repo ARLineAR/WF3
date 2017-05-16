@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta charset="utf-8"/>
+        <style>
+            div{ width: 50%; margin: 0 auto; }
+            #demo{ border: 1px solid; padding: 30px; }
+            div h1{ color: white; padding: 20px; background-color: darkred;}
+        </style>
+        
+    </head> 
+    <body>
+        <div id="titre">
+            <h1>ANCIEN TITRE</h1>
+            <button type="button" id="action2">Changer Titre</button>
+         
+        </div>
+        <div>
+            <p id="demo">...</p>
+            <button type="button" id="action">Changer Texte</button>
+        </div>
+
+        <script>
+ 
+
+            /*
+                Les statuts de la requête XMLHttpRequest:
+                    0 => objet, créé, mais demande non-initialisée
+                    1 => connexion du serveur établie
+                    2 => demande reçue par le serveur
+                    3 => trzitement côté serveur
+                    4 => demande terminée, la réponse est reçue
+            */
+
+            /*
+                Les statuts HTTP:
+                    200 => OK
+                    403 => Forbidden
+                    404 => Page not found
+                    ...
+                    https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP
+            */
+
+
+            // On récupère l'élément dont l'id est est 'action' pour mettre enplace un évévneùent, l'exécution d'une fonction lors du clic.
+            document.getElementById("action").addEventListener("click", changeText); // addEventListener est l'une des trois différentes méthodes qui permettent d'ajouter un événement Javascript 
+
+            function changeText() {
+                var xhttp = new XMLHttpRequest(); // instanciation de l'objet XMLHttpRequest.
+
+                // mise en place d'un événement sur le changement d'état
+                xhttp.onreadystatechange = function() {
+                        console.log(xhttp.readyState); // on vérifie le statut
+                        console.log(xhttp.status);               
+                    if(xhttp.readyState == 4 && xhttp.status == 200){
+                        
+                        // lorsaue le statut de la requête est égal à 41 et que le statut http vaut 200
+                        console.log(xhttp.responseText); // on récupère le statut
+                        
+                        document.getElementById("demo").textContent = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "ajax_info_text.txt", true); // lon prépare la requête
+                // 1er argument: la méthode, 2e: la page cible, 3e: mode asynchrone (true) ou synchrone (false) cette valeur  est à true par défaut.
+                xhttp.send(); // on envoie la demande.
+            }
+
+            // change contenu avec prise en charge de l'HTML
+            document.getElementById("action2").addEventListener("click", changeTitre); // addEventListener est l'une des trois différentes méthodes qui permettent d'ajouter un événement Javascript 
+
+            function changeTitre() {
+                var xhttp = new XMLHttpRequest(); // instanciation de l'objet XMLHttpRequest.
+
+                // mise en place d'un événement sur le changement d'état
+                xhttp.onreadystatechange = function() {
+                        // console.log(xhttp.readyState); // on vérifie le statut
+                        // console.log(xhttp.status);               
+                    if(xhttp.readyState == 4 && xhttp.status == 200){
+                        
+                        // lorsaue le statut de la requête est égal à 41 et que le statut http vaut 200
+                        // console.log(xhttp.responseText); // on récupère le statut
+                        
+                        document.getElementById("titre").innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "ajax_info_html.txt", true); // lon prépare la requête
+                // 1er argument: la méthode, 2e: la page cible, 3e: mode asynchrone (true) ou synchrone (false) cette valeur  est à true par défaut.
+                xhttp.send(); // on envoie la demande.
+            }
+        </script>
+
+    </body>
+</html>
+       

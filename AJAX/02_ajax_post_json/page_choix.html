@@ -1,0 +1,77 @@
+<!--
+    Faire une page avec un champ select qui permet de choisir un prénom 
+    Mettre en place une requête ajax qui récupère le prénom choisi pour la passer dans les paramètres et afficher la réponse dans notre page html
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            *{
+                font-family: sans-serif;
+            }
+
+            form{
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            select, input{
+                padding: 5px;
+                width: 100%;
+            }
+        </style>
+    
+    </head>
+    <body>
+        <form method="post"id="form_choix">
+            <label>Choix du prénom</label><br>
+            <select id="choix" onchange="ajax()">
+                <option>Laura</option>
+                <option>Daniel</option>
+                <option>Julien</option>
+                <option>Fabrice</option>
+                <option>Elodie</option>
+                <option>Stephanie</option>              
+            </select> <br><br>
+            <input type="submit" value="Valider">
+        </form>
+        <div id="resultat"></div>
+        
+    <script>
+        function ajax(){
+            var file = "ajax.php";
+            r = new XMLHttpRequest();
+            var choix = document.getElementById("choix");
+            choix= choix.value;
+            console.log(choix);
+            var parametres ="prenom="+choix;
+        
+            r.open("POST", file, true);
+            r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            r.onreadystatechange = function() {
+                    if(r.readyState == 4 && r.status == 200){
+                        console.log(r.responseText);
+                        var obj = JSON.parse(r.responseText);
+                        
+                        document.getElementById("resultat").innerHTML = obj.resultat; 
+                              
+                    }
+                }
+                
+                r.send(parametres); //envoi
+        }
+        
+         
+        
+            
+           
+
+    </script>
+
+    </body>
+</html>
