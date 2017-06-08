@@ -6,6 +6,7 @@ use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 
 $app = new Application();
@@ -33,6 +34,8 @@ $app->register(
         ]
     ]
 );
+
+$app->register(new SessionServiceProvider());
 
 $app['category.repository'] = function () use ($app){
     return new CategoryRepository($app['db']);

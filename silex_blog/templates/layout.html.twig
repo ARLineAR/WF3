@@ -16,7 +16,7 @@
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container">
-                <a class=" navbar-brand">Menu admin</a>
+                <a class="navbar-brand">Menu admin</a>
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="{{ path('admin_categories') }}">Rubriques</a>
@@ -32,7 +32,15 @@
             </div>
         </nav>
         <div class="container">
-           {% block content %}{% endblock %}
+            {% for label, flashes in global.session.flashbag.all %} {# correspond à foreach as label => flashes #}
+                {% for flash in flashes %}
+                    {% if label == 'error' %}
+                        {%set label = 'danger' %}
+                    {% endif %}
+                        <div class="alert alert-{{ label}}">{{ flash }}</div>
+                {% endfor %}
+            {% endfor %}
+            {% block content %}{% endblock %}
         </div>
         
         {% block javascripts %}
