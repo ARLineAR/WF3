@@ -1,17 +1,8 @@
-{% extends "layout.html.twig" %}
+ <ul class="nav navbar-nav">
+    {% for category in categories %}
 
-{% block content %}
+        <li><a href="{{ path('category', {id: category.id}) }}">{{ category.name }}</a></li>
 
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-        </tr>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-{% endblock %}
+    {% endfor %}
+      
+</ul>

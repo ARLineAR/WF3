@@ -1,18 +1,74 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 namespace Controller\Admin;
 
-/**
- * Description of ArticleController
- *
- * @author Etudiant
- */
-class ArticleController {
-    //put your code here
+use Controller\ControllerAbstract;
+use Entity\Article;
+use Entity\Category;
+
+
+class ArticleController extends ControllerAbstract {
+    
+    public function listAction(){
+        
+        $articles = $this->app['article.repository']->findAll();
+        
+        return $this->render(
+            'admin/article/list.html.twig',
+            ['articles' => $articles]
+        );
+    }
+    
+    public function editAction($id = null){
+        
+        
+        $categories = $this->app['category.repository']->findAll();
+        
+        if(!is_null($id)){
+            
+            $article = $this->app['article.repository']->find($id);
+            
+        }else{
+            $article = new Article();
+            $article->setCategory(new Category());
+        }
+        if (!empty($_POST)){
+            $article
+                ->setTitle($_POST['title'])
+                ->setContent($_POST['content'])
+                ->setShortContent($_POST['short_content']);
+            
+            $article ->getCategory()->setId($_POST['category']);
+            ;
+                 
+            $this->app['article.repository']->save($article); // save vérifie que l'id existe, si non => insert, si oui => update
+            $this->addflashMessage('L\'article est enregistré');
+            return $this->redirectRoute('admin_articles');
+        }
+                
+        return $this->render(
+            'admin/article/edit.html.twig',
+            [
+                'article' => $article,              
+                'categories' => $categories,
+            ]
+        );
+    }
+    
+    public function deleteAction($id){
+        
+         $article = $this->app['article.repository']->find($id);
+        
+        $this->app['article.repository']->delete($article); // save vérifie que l'id existe, si non => insert, si oui => update
+        $this->addflashMessage('L\'article est supprimé');
+        
+        return $this->redirectRoute('admin_articles');
+    }
+  
+    
+    
+    
 }
+

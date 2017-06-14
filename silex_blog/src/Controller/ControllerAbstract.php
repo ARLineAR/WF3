@@ -5,6 +5,8 @@ namespace Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Twig_Environment;
 
 abstract class ControllerAbstract { // classe qui ne sert qu'à être héritée
@@ -31,12 +33,19 @@ abstract class ControllerAbstract { // classe qui ne sert qu'à être héritée
      * 
      * @param Application2 $app
      */
+    
+    /**
+     *
+     * @var RecursiveValidator
+     */
+    protected $validator;
 
     public function __construct(Application $app){
        
         $this->app = $app;
         $this->twig = $app['twig'];
         $this->session =$app['session'];
+        $this->validator =$app['validator'];
        
        
     }
@@ -70,5 +79,20 @@ abstract class ControllerAbstract { // classe qui ne sert qu'à être héritée
     
     public function addflashMessage($message, $type = 'success'){
         $this->session->getFlashBag()->add($type, $message); 
+    }
+    
+  /**
+   * 
+   * @param mixed $value
+   * @param Constraint $constraint
+   * @return bool
+   */
+    public function validate($value, Constraint $constraint) {
+        
+        $errors = $this->validator->validate($value, $constraint);
+        
+        // s'il est vide; c'est que la valeur est valide
+        return $errors->count() == 0;
+        
     }
 }

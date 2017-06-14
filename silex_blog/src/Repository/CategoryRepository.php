@@ -5,16 +5,8 @@ namespace Repository;
 use Doctrine\DBAL\Connection;
 use Entity\Category;
 
-class CategoryRepository {
-    /**
-     *
-     * @var Connection 
-     */
-    private $db;
-
-    public function __construct(Connection $db){
-        $this-> db = $db;
-    }
+class CategoryRepository extends RepositoryAbstract{
+    
     
     public function findAll(){
         
@@ -60,7 +52,7 @@ class CategoryRepository {
     }
     
     public function update(Category $category){
-         $this->db->pudate(
+         $this->db->update(
             'category', // nom de la table
             ['name' => $category->getName()], //valeurs
             ['id' => $category->getId()] // clause WHERE
@@ -71,9 +63,9 @@ class CategoryRepository {
     public function save(Category $category){
         
         if(!empty($category->getId())) {
-            $this->update($catgeory);
+            $this->update($category);
         }else{
-            $this->insert($catgeory);
+            $this->insert($category);
         }
         
     }
