@@ -44,7 +44,7 @@ $resultat =executeRequete("SELECT id_commande, date_enregistrement, etat FROM co
 if($resultat->rowCount() > 0) {
     // on affiche les commandes :
     $contenu .='<ul>';
-    while ($commande= =$resultat->fetch(PDO::FETCH_ASSOC)) {
+    while ($commande =$resultat->fetch(PDO::FETCH_ASSOC)) {
         $contenu .= '<li> Votre commande n° '. $commande['id_commande'] . ' du ' . $commande['date_enregistrement'] . ' est actuellement ' . $commande['etat']. '</li>';
 
     }
